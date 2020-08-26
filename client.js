@@ -3,24 +3,21 @@ const stdin = process.stdin;
 stdin.resume();
 stdin.setEncoding('utf8');
 
+const connect = function() {
+  const conn = net.createConnection({
+    host: '135.23.222.131',
+    port: '50542'
+  });
+  conn.setEncoding('utf8');
+  conn.on('connect', () => {
+    console.log('You are connected to the snake server!');
+  });
+  
+  conn.on('data', (data) => {
+    console.log(`-> ${data}`)
+  });
 
+  return conn;
+};
 
-const client = net.createConnection({
-  host: '0.tcp.ngrok.io',
-  port: 11890,
-});
-
-client.setEncoding('utf8');
-
-client.on('connect', () => {
-  console.log('You are connected to Travis server!');
-  client.write("Hello, this is mark.")
-});
-
-stdin.on('data', (data) => {
-  client.write(data);
-});
-
-client.on('data', (data) => {
-  console.log(`-> ${data}`)
-})
+module.exports = { connect };
