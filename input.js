@@ -1,3 +1,4 @@
+const { KEYOBJECT } = require('./constants');
 let connection;
 
 const handleUserInput = function(key) {
@@ -5,32 +6,8 @@ const handleUserInput = function(key) {
     console.log('Hope you enjoyed the game! Ciao!');
     process.exit();
   }
-  if (key === 'w') {
-    connection.write("Move: up");
-  }
-  if (key === 'a') {
-    connection.write("Move: left");
-  }
-  if (key === 's') {
-    connection.write("Move: down");
-  }
-  if (key === 'd') {
-    connection.write("Move: right");
-  }
-  if (key === 'm') {
-    connection.write("Say: move aside!");
-  }
-  if (key === 'e') {
-    connection.write("Say: eat");
-  }
-  if (key === 'p') {
-    connection.write("Say: play");
-  }
-  if (key === 'f') {
-    connection.write("Say: fruit!");
-  }
-  if (key === 'b') {
-    connection.write("Say: back");
+  if (key) {
+    connection.write(KEYOBJECT[key]);
   }
 };
 
