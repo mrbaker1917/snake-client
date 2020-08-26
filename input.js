@@ -22,7 +22,7 @@ const handleUserInput = function(key) {
   }
   if (key === 'e') {
     connection.write("Say: eat");
-  };
+  }
   if (key === 'p') {
     connection.write("Say: play");
   }
