@@ -12,7 +12,10 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('You are connected to the snake server!');
     conn.write("Name: mrb");
-  });
+  //   setInterval(() => {
+  //     conn.write("Move: left");
+  //   }, 50);
+  // });
 
   conn.on('data', (data) => {
     console.log(`-> ${data}`)
